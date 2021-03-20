@@ -23,3 +23,9 @@
 - ir usuarios.js
 ## Obtener datos de un Post
 ## Parametros de segmento y query
+
+# Subir aplicacion a Heroku
+- IMPORTATE: package.json -> script: "start": "node app"
+- ir heroku.com
+- create new app
+- con Github -> deploy Branch
