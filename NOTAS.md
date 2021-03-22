@@ -112,4 +112,10 @@
 
 # Desplegar RestServer en Heroku
 - guardar todos los cambios en git
+- deploy to heroku
+
+# Variables de entorno .env personalizadas heroku
+- NO SUBIR .env a un repositorio
+- ir .gitignore
+- >git rm .env (rm de remove)
 
