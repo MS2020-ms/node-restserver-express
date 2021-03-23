@@ -114,8 +114,72 @@
 - guardar todos los cambios en git
 - deploy to heroku
 
-# Variables de entorno .env personalizadas heroku
+# Variables de entorno .env personalizadas Heroku
 - NO SUBIR .env a un repositorio
 - ir .gitignore
-- >git rm .env (rm de remove)
+- >git rm .env --cached -> (rm de remove)
+  >git add .
+  >git commit -m ".env borrado"
+- duplicar .env y renombrar .example.env
+- borrar MONGODB_CNN del .example.env
+- >git add .
+  >git commit -m ".example.env added"
+  >git push
 
+- Creo variable de entorno en heroku:
+- >heroku config:set MONGODB_CNN="mongodb+srv://user_node_cafe:yObCd5PoFsP3hgtm@miclustercafe.doasz.mongodb.net/cafeDB"
+
+# Autenticacion por Token
+- JWT jsonwebtoken = Header-Payload(data)-Firma
+- https://jwt.io/
+- Parse - JWT - Obtener Payload y fecha de creación y expiración
+  Código para leer JWT -> consola de navegador:
+
+  ```
+  function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+  };
+  ```
+  ```
+  let token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1pZ3VlbCBTb3RvIiwiaWF0IjoxNTE2MjM5MDIyfQ.puPLJV7qHwalYSD-HyTYt5AjRCVAFiWkFcvBXqn1ep4
+  ```
+  ```
+  parseJwt (token)
+  ```
+
+# Crear ruta autenticacion - Auth - Login
+- ir models/server.js
+- crear routes/auth.js
+- crear controllers/auth.js
+## Login de usuario y generar JWT
+- >npm i jsonwebtoken
+- ir controllers/auth.js
+- crear helpers/generar-jwt.js
+- ir .env (SECRETORPRIVATEKEY)
+## Cambiar _id por uid 
+- ir models/usuario.js
+## Proteger rutas mediante Token-Middleware
+- crear nuevo midleware personalizado
+  ir midlewares/validar-jwt.js
+  Postman -> Headers: x-token: abc123
+- ir routes/usuarios.js -> validarJWT
+- ir controllers/usuario.js
+## Obtener informacion del usuario autenticado
+- 1.datos del usuarioAutenticado 
+- ir controllers/usuario.js
+- ir midlewares/validar-jwt.js
+- 2.comprobar que el usuario tiene estado true (activo)
+## Middleware verificar ROL de Adminsitrador
+- crear nuevo midlewares/validar-roles.js
+- ir  routes/usuarios.js -> esAdminRole
+## Middleware tiene ROL
+- Esta ruta la puede ejecutar teniendo varios roles
+- ir midlewares/validar-roles.js
+- ir routes/usuarios.js -> tieneRole
+## Optimizar importaciones en Node
+- crear middlewares/index.js
+- ir routes/usuarios.js
+
+# Variables de entorno .env personalizadas SECRETORPRIVATEKEY -> Deploy Heroku

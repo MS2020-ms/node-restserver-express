@@ -36,8 +36,10 @@ const UsuarioSchema = Schema({
 
 //Metodo toJSON - Sacar el password y __v de la respuesta (res) - informacion sensible
 UsuarioSchema.methods.toJSON = function () {
-    //extraer __v, password y el resto de argumentos agrupados en usuario:
-    const { __v, password, ...usuario } = this.toObject();
+    //extraer __v, password, _id de la respuesta. Y el resto de argumentos agrupados en usuario:
+    const { __v, password, _id, ...usuario } = this.toObject();
+    //cambiar _id por uid
+    usuario.uid = _id;
     return usuario;
 }
 

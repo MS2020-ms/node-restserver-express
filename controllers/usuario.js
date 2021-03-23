@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 const Usuario = require('../models/usuario');
 
-
+//controlador
 const usuariosGet = async (req = request, res = response) => {
     //http://localhost:8080/api/usuarios?desde=5
     //http://localhost:8080/api/usuarios?limit=5
@@ -90,7 +90,10 @@ const usuariosDelete = async (req, res = response) => {
     //OP2: Cambiar el estado del usuario a false
     const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 
-    res.json(usuario);
+    const usuarioAutenticado = req.usuario;
+
+    //recibo el usuario, uid, usuarioAutenticado
+    res.json({ usuario, usuarioAutenticado });
 }
 
 module.exports = {
