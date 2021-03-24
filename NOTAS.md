@@ -183,3 +183,56 @@
 - ir routes/usuarios.js
 
 # Variables de entorno .env personalizadas SECRETORPRIVATEKEY -> Deploy Heroku
+- >heroku config
+- >heroku config:set SECRETORPRIVATEKEY="Est03sMyPub1cK3y23@33"
+- >heroku config
+- >git add .
+- >git commit -m "JWT implementado"
+- >git push heroku main or >git push
+
+# GOOGLE SIGN-IN
+## Generar APIKey y APISecret
+- https://developers.google.com/identity/sign-in/web/sign-in
+  Go to the Credentials page
+  Credenciales
+  + Crear Credenciales
+  ID de cliente de OAuth
+  Tipo de aplicacion: Aplicacion web
+  Nombre: Node-Cafe
+  Agregar URI -> http://localhost:8080
+  Agregar URI -> https://restserver-udemy-node.herokuapp.com
+  CREAR
+  TU ID de cliente: ver .env
+  Tu secreto de cliente: ver .env
+## Usuario de Google - Frontend
+- ir public/index.html
+## Rutas para manejat autenticacion de Google
+- https://developers.google.com/identity/sign-in/web/sign-in
+  Authenticate with a Backend Server
+  Send the ID token to your server
+- ir public/index.html
+- crear ruta que reciba id-token -> 
+  ir routes/auth.js
+- crear controlador controllers/auth.js
+- Probar ruta en Postman 
+## Validar Token de Google en Backend
+- https://developers.google.com/identity/sign-in/web/sign-in
+  Verify the integrity of the ID token
+  Using a Google API Client Library
+  Node.js
+  >npm install google-auth-library --save
+  copiar codigo verofyToken()
+- crear helpers/google-verify.js
+  pegar codigo y adaptarlo
+- ir controllers/auth.js
+- ir models/usuario.js
+## Crear usuario personalizado con credenciales de Google en BD
+- ir controllers/auth.js
+
+# Variables de entorno .env personalizadas GOOGLE_CLIENT_ID -> Deploy Heroku
+- >heroku config
+- >heroku config:set GOOGLE_CLIENT_ID=323434363869-uh1qasiug0cv52r1jprort9q4ic0bjv3.apps.googleusercontent.com
+- >heroku config
+- >git add .
+- >git commit -m "Google-In implementado"
+- >git push heroku main or >git push
