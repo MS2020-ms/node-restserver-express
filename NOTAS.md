@@ -236,3 +236,24 @@
 - >git add .
 - >git commit -m "Google-In implementado"
 - >git push heroku main or >git push
+
+# Generar 'documentacion' automatica de nuestras rutas - Postman
+- Postman
+- Collections/Cafe-Node .../View Documentation/ Language JavaScript Fetch -> Publish (arriba drch)
+- Abre un pagina en navegador -> personalizar y Publish Collection
+  URL
+  https://documenter.getpostman.com/view/14330308/TzCHA9j8
+
+# CRUD y Rutas de Categorias
+- crear routes/categorias.js
+- crear controllers/categorias.js
+- ir models/server.js
+- crear rutas en Postman
+## Modelo Categoria
+- crear models/categoria.js
+- crear models/index.js -> xa agrupar importacion de modelos
+## CRUD de Categorias
+- ir routes/categorias.js
+- ir controllers/categorias.js
+- ir helpers/db.validators.js -> existeCategoria
+- ir Postman (peticiones)

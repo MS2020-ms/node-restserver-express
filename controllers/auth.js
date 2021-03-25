@@ -18,7 +18,7 @@ const login = async (req = request, res = response) => {
         if (!usuario) {
             return res.status(400).json({
                 msg: 'Usuario/Password no son correctos - correo'
-            })
+            });
         }
 
         //Verificar si usuario activo en BD (estado: true/false)
@@ -26,7 +26,7 @@ const login = async (req = request, res = response) => {
         if (usuario.estado === false) {
             return res.status(400).json({
                 msg: 'Usuario/Password no son correctos - estado:false'
-            })
+            });
         }
 
         //Verificar password
@@ -34,7 +34,7 @@ const login = async (req = request, res = response) => {
         if (!validPassword) {
             return res.status(400).json({
                 msg: 'Usuario/Password no son correctos - password'
-            })
+            });
         }
 
         //Generar JWT
@@ -51,7 +51,7 @@ const login = async (req = request, res = response) => {
         console.log(error);
         res.status(500).json({
             msg: 'Hable con el administrador del Server'
-        })
+        });
     }
 }
 
@@ -81,7 +81,7 @@ const googleSignin = async (req, res = response) => {
         if (!usuario.estado) {
             return res.status(401).json({
                 msg: 'Hable con el administrador, usuario inactivo o bloqueado'
-            })
+            });
         }
 
         //Generar JWT

@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 const Usuario = require('../models/usuario');
 
-//controlador
+//controlador Obtener Usuarios
 const usuariosGet = async (req = request, res = response) => {
     //http://localhost:8080/api/usuarios?desde=5
     //http://localhost:8080/api/usuarios?limit=5
@@ -22,7 +22,7 @@ const usuariosGet = async (req = request, res = response) => {
         Usuario.find(query)
             .skip(Number(desde))
             .limit(Number(limite))
-    ])
+    ]);
 
     res.json({
         total,
@@ -37,8 +37,6 @@ const usuariosPut = async (req, res = response) => {
     //puedo extraer el password, google, correo y el agrupo resto de argumentos
     //los extraigo y no hago nada con ellos, no les permito cambiar
     const { _id, password, google, correo, ...resto } = req.body;
-
-    //TODO Validar contra la BD
 
     if (password) {
         //encriptar contrasena (salt: n° de vueltas de encriptacion - seguridad)-(por defecto: 10)
