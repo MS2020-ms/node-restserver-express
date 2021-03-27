@@ -6,7 +6,9 @@ const { crearCategoria,
     obtenerCategoria,
     actualizarCategoria,
     borrarCategoria } = require('../controllers/categorias');
+
 const { validarJWT, validarCampos, esAdminRole } = require('../midlewares');
+
 const { existeCategoriaPorId } = require('../helpers/db-validators');
 
 const router = Router();
@@ -36,6 +38,7 @@ router.post('/', [
 router.put('/:id', [
     validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+    check('categoria', 'No es un id de Mongo').isMongoId(),
     check('id').custom(existeCategoriaPorId),
 
     validarCampos

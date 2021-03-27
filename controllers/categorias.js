@@ -49,7 +49,7 @@ const crearCategoria = async (req, res = response) => {
     //si existe:
     if (categoriaDB) {
         return res.status(400).json({
-            msg: `La categoria ${nombre}, ya existe`
+            msg: `La categoria ${categoriaDB.nombre}, ya existe`
         });
     }
 
@@ -85,7 +85,7 @@ const actualizarCategoria = async (req, res = response) => {
 //borrarCategoria - cambiar estado:false
 const borrarCategoria = async (req, res = response) => {
     const { id } = req.params;
-    const categoriaBorrada = await Categoria.findOneAndUpdate(id, { estado: false }, { new: true });
+    const categoriaBorrada = await Categoria.findByIdAndUpdate(id, { estado: false }, { new: true });
 
     res.json(categoriaBorrada);
 }

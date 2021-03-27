@@ -257,3 +257,23 @@
 - ir controllers/categorias.js
 - ir helpers/db.validators.js -> existeCategoria
 - ir Postman (peticiones)
+
+# Modelo de Productos y Rutas
+- crear routes/productos.js
+- crear controllers/productos.js
+- crear models/producto.js
+- ir models/server.js -> crear path y route de productos
+## CRUD de Productos
+- ir routes/productos.js
+- ir controllers/productos.js
+- ir helpers/db.validators.js -> existeProducto
+- ir Postman (peticiones)
+
+# Ruta para realizar Busquedas en BD
+- crear routes/buscar.js
+- crear controllers/buscar.js
+- ir models/server.js
+- ir Postman (peticiones)
+
+# Deploy Heroku
+
