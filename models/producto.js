@@ -34,6 +34,9 @@ const ProductoSchema = Schema({
         ref: 'Categoria',
         required: true
     },
+    img: {
+        type: String,
+    }
 });
 
 //Metodo toJSON - Sacar la version __v y el estado de la respuesta (res) - informacion sensible

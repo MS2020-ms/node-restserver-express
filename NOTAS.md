@@ -276,4 +276,72 @@
 - ir Postman (peticiones)
 
 # Deploy Heroku
+- >git add .
+  >git commit -m "CRUD Productos, categorias y busquedas"
+  >git brunch (compruebo el nombre de mi rama = main)
+  >git push heroku main or >git push
+- Postman enviroment Produccion-Node y hacer peticiones contra Heroku
 
+# Cargas de Archivos
+- crear routes/uploads.js
+- crear controllers/uploads.js
+- ir models/server.js
+## Subir archivos - express-fileupload
+- https://www.npmjs.com/package/express-fileupload
+- >npm i express-fileupload
+- ir models/server.js -> ir a los middlewares
+- ir Postman - Body - (o)form-data - key:archivo[file] value[select file] - Send
+- ir controllers/upload.js
+  pegar desde https://github.com/richardgirges/express-fileupload/blob/master/example/server.js
+  el interior de app.post('/upload', function(req, res) {...}
+  pegar en cargarArchivo
+- creo carpeta uploads (donde guardar archivos)
+## Validar extensiones
+- ir controllers/uploads.js
+## Ubicar y cambiar nombre
+- >npm i uuid
+- ir controllers/uploads.js
+## Helper - SubirArchivo
+- crear helpers/subir-archivo.js
+- ir controllers/uploads.js
+## Crear carpetas de destino
+- ir controllers/uploads.js
+
+# Rutas para actualizar imagenes de usuarios y productos
+- crear ruta actualizar archivos en Postman
+- ir routes/uploads.js
+- ir controllers/uploads.js
+- ir helpers/db-validators.js -> coleccionesPermitidas
+## Actualizar imagen de usuario y productos
+- ir controllers/uploads.js
+- crear middlewares/validar-archivo.js
+## Borrar archivos del servidor
+- ir controllers/uploads.js
+## Servicio para mostrar imagenes
+- crear ruta
+- ir routes/uploads.js
+- ir controllers/uploads.js
+## Imagen de relleno Placeholder
+- ir controllers/uploads.js
+ 
+# Heroku.....NO almacena archivos de imagenes
+# Cloudinary SI (1Gb gratis xa imagenes) - Servidor para imagenes y videos
+- https://www.npmjs.com/package/cloudinary
+- https://cloudinary.com/
+- >npm install cloudinary
+- copiar CLOUDINARY_URL= en .env
+- ir controllers/uploads.js -> actualizarImagenCloudinary
+- ir routes/uploads.js
+## Borrar imagenes de Cloudinary
+- ir controllers/uploads.js
+
+# Deploy Heroku
+- Variable de entorno a Heroku
+  >heroku config 
+  >heroku config:set CLOUDINARY_URL="cloudinary://886314393218723:Y7yauefQ8JmYMgX3oVyH4-tBGTY@dpgiuswch"
+  >heroku config
+- >git add .
+  >git commit -m "CRUD Productos, categorias y busquedas"
+  >git brunch (compruebo el nombre de mi rama = main)
+  >git push heroku main or >git push
+- Postman enviroment Produccion-Node y hacer peticiones contra Heroku
