@@ -280,7 +280,7 @@
   >git commit -m "CRUD Productos, categorias y busquedas"
   >git brunch (compruebo el nombre de mi rama = main)
   >git push heroku main or >git push
-- Postman enviroment Produccion-Node y hacer peticiones contra Heroku
+- Postman enviroment: Produccion-Node y hacer peticiones contra Heroku
 
 # Cargas de Archivos
 - crear routes/uploads.js
@@ -336,12 +336,12 @@
 - ir controllers/uploads.js
 
 # Deploy Heroku
-- Variable de entorno a Heroku
+- Variable de entorno a Heroku:
   >heroku config 
-  >heroku config:set CLOUDINARY_URL="cloudinary://886314393218723:Y7yauefQ8JmYMgX3oVyH4-tBGTY@dpgiuswch"
+  >heroku config:set CLOUDINARY_URL="copiar de .env"
   >heroku config
 - >git add .
-  >git commit -m "CRUD Productos, categorias y busquedas"
+  >git commit -m "file upload added"
   >git brunch (compruebo el nombre de mi rama = main)
   >git push heroku main or >git push
-- Postman enviroment Produccion-Node y hacer peticiones contra Heroku
+- Postman enviroment: Produccion-Node y hacer peticiones contra Heroku
