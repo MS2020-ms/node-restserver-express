@@ -127,7 +127,7 @@
   >git push
 
 - Creo variable de entorno en heroku:
-- >heroku config:set MONGODB_CNN="mongodb+srv://user_node_cafe:yObCd5PoFsP3hgtm@miclustercafe.doasz.mongodb.net/cafeDB"
+- >heroku config:set MONGODB_CNN="copiar de .env"
 
 # Autenticacion por Token
 - JWT jsonwebtoken = Header-Payload(data)-Firma
@@ -184,7 +184,7 @@
 
 # Variables de entorno .env personalizadas SECRETORPRIVATEKEY -> Deploy Heroku
 - >heroku config
-- >heroku config:set SECRETORPRIVATEKEY="Est03sMyPub1cK3y23@33"
+- >heroku config:set SECRETORPRIVATEKEY="copiar de .env"
 - >heroku config
 - >git add .
 - >git commit -m "JWT implementado"
@@ -231,7 +231,7 @@
 
 # Variables de entorno .env personalizadas GOOGLE_CLIENT_ID -> Deploy Heroku
 - >heroku config
-- >heroku config:set GOOGLE_CLIENT_ID=323434363869-uh1qasiug0cv52r1jprort9q4ic0bjv3.apps.googleusercontent.com
+- >heroku config:set GOOGLE_CLIENT_ID="copiar de .env"
 - >heroku config
 - >git add .
 - >git commit -m "Google-In implementado"
